@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSignOutMutation } from '../features/usersApi'
 
 export default function Home() {
-  const [id,setId] = useState("")
+  const [email,setEmail] = useState("")
   const [user,setUser] = useState()
   const [signout] = useSignOutMutation()
   const userLS = JSON.parse(localStorage.getItem("user"))
@@ -11,13 +11,14 @@ export default function Home() {
   
   useEffect(()=>{
     if(userLS){
-      setId(userLS.id)
+      setEmail(userLS.email)
     }
   },[])
 
   const signOut = ()=>{
-    signout(id).then(res => {
+    signout(email).then(res => {
       navigate('/')
+      console.log(res)
     })
   }
 
