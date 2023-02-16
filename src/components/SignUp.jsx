@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSignUpMutation } from '../features/usersApi'
+import SignUpGoogle from './SignUpGoogle'
 
 export default function SignUp() {
     const [signup] = useSignUpMutation()
@@ -62,7 +63,7 @@ export default function SignUp() {
         </form>
         <h2>{finish}</h2>
         <button onClick={()=> navigate("/")}>Volver</button>
-        
+        <SignUpGoogle />
     </main>
   )
 }
