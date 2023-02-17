@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSignUpMutation } from '../features/usersApi'
 import SignUpGoogle from './SignUpGoogle'
-
 export default function SignUp() {
     const [signup] = useSignUpMutation()
     const [name, setName] = useState("")
@@ -11,6 +10,8 @@ export default function SignUp() {
     const [password, setPassword] = useState("")
     const [country, setCountry] = useState("Argentina")
     const [finish,setFinish] = useState("")
+    const [code,setCode] = useState("")
+    const [codeBool,setCodeBool] = useState(false)
     const navigate = useNavigate()
 
     const submitForm = (e)=>{
@@ -27,25 +28,29 @@ export default function SignUp() {
         }
         signup(data).then(res => {
             if(res.data.success){
-                setFinish("¡ User register successfully ! Check your email.")
+                console.log(res.data)
+                setFinish("¡ User register successfully !")
+                setCode(res.data.code)
+                setCodeBool(true)
             }
             else{
                 setFinish("User already exist")
             }
         })
     }
+    console.log(code)
   return (
     <main>
         <h1>Registro</h1>
         <form onSubmit={submitForm}>
             <label>Nombre
-                <input type="text" required={true} onChange={(e)=>setName(e.target.value)}/>
+                <input type="text" required={true} name="name" onChange={(e)=>setName(e.target.value)}/>
             </label>
             <label>Apellido
-                <input type="text" required={true} onChange={(e)=>setLastName(e.target.value)}/>
+                <input type="text" required={true} name="lastname" onChange={(e)=>setLastName(e.target.value)}/>
             </label>
             <label>Email
-                <input type="email" required={true} onChange={(e)=>setEmail(e.target.value)}/>
+                <input type="email" required={true} name="email" onChange={(e)=>setEmail(e.target.value)}/>
             </label>
             <label>Password
                 <input type="password" required={true} onChange={(e)=>setPassword(e.target.value)}/>
@@ -60,8 +65,9 @@ export default function SignUp() {
                 </select>
             </label>
             <button>Crear Cuenta</button>
+            <h2>{finish}</h2>
         </form>
-        <h2>{finish}</h2>
+        {codeBool && <a href='https://mail.google.com'>Click Here to Active your account</a>}
         <button onClick={()=> navigate("/")}>Volver</button>
         <SignUpGoogle />
     </main>
