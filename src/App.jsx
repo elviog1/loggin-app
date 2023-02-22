@@ -18,7 +18,6 @@ function App() {
         <Route path="/home" element={<CommentsPage />} />
       </Routes>
     </BrowserRouter>
-
   )
 }
 

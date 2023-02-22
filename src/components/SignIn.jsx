@@ -22,6 +22,7 @@ export default function SignIn() {
             const user = res.data.response.loginUser
             console.log(user)
             localStorage.setItem("user",JSON.stringify(user))
+            localStorage.setItem("id",JSON.stringify(user.id))
             setFinish("Loading...")
             setTimeout(()=>{
                 navigate("/home")

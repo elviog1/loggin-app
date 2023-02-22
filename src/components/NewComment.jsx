@@ -21,7 +21,7 @@ export default function NewComment() {
     <form onSubmit={sendComment}>
         <span>{user.name}</span>
         <div style={{display:"flex"}}>
-            <img src={user.picture} />
+            <img src={user.picture || user.photo} style={{width:'100px'}} />
             <textarea onChange={(e)=> setMessage(e.target.value)}></textarea>
         </div>
         <button >Enviar</button>
