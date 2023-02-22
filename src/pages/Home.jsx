@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import BoxComment from '../components/BoxComment'
 import { useSignOutMutation } from '../features/usersApi'
 
 export default function Home() {
@@ -18,6 +19,8 @@ export default function Home() {
   const signOut = ()=>{
     signout(email).then(res => {
       navigate('/')
+      localStorage.removeItem("id")
+      localStorage.removeItem("user")
       console.log(res)
     })
   }
@@ -34,10 +37,7 @@ export default function Home() {
     <main>
         <Header />
         <h1>Comentarios</h1>
-        <div>
-          <img />
-
-        </div>
+        <BoxComment />
     </main>
   )
 }
