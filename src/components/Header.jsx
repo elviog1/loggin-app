@@ -22,7 +22,7 @@ export default function Header() {
     })
 
   }
-  console.log(user)
+  // console.log(user)
   return (
     <header>
         <span>Login-APP</span>
