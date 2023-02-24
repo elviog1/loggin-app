@@ -22,9 +22,8 @@ export default function NewComment() {
   return (
     <form className='flex flex-col px-4' onSubmit={sendComment}>
         <span className="text-center font-bold">{user.name}</span>
-
         <div className='flex'>
-            <img className='rounded w-24' src={user.picture || user.photo}  />
+            <img className='rounded w-24' src={user.picture || user.photo} alt='user picture' />
             <textarea className="resize-none rounded w-full" onChange={(e)=> setMessage(e.target.value)}></textarea>
         </div>
         <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Enviar</button>
