@@ -10,6 +10,8 @@ export default function Comments(props) {
             <img className='w-24 rounded' src={commentData.user.photo} />
             <h3 className="px-3 font-serif">{commentData.comment}</h3>
         </div>
+        <h4 className="text-end text-gray-500">{commentData.date}</h4>
+
     </div>
   )
 }
