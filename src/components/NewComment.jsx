@@ -11,15 +11,18 @@ export default function NewComment() {
         e.preventDefault()
         let data = {
             comment: message,
-            user: id
+            user: id,
+            date: new Date().toLocaleString()
         }
         postComment(data).then(res =>{
             console.log(res)
         } )
     }
+
   return (
     <form className='flex flex-col px-4' onSubmit={sendComment}>
         <span className="text-center font-bold">{user.name}</span>
+
         <div className='flex'>
             <img className='rounded w-24' src={user.picture || user.photo}  />
             <textarea className="resize-none rounded w-full" onChange={(e)=> setMessage(e.target.value)}></textarea>
