@@ -24,14 +24,16 @@ export default function Header() {
   }
   // console.log(user)
   return (
-    <header>
-        <span>Login-APP</span>
-        {user && 
-          <div>
+    <header className="flex justify-between font-medium px-2">
+    {user && 
+        <>
+        <span className="text-3xl font-serif">Login-APP</span>
+          <div className="flex gap-3 text-2xl">
             <span>{user.name}</span>
-            <span style={{color:'red',cursor:'pointer'}} onClick={handleSignout}>Descontarse</span>
+            <span className="text-rose-700 cursor-pointer" onClick={handleSignout}>Descontarse</span>
           </div>
+        </>
         }
-    </header>
-  )
+          </header>
+          )
 }

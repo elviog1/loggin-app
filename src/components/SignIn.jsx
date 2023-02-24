@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSignInMutation } from '../features/usersApi'
-import SignInGoogle from './SignInGoogle'
 
 export default function SignIn() {
     const navigate = useNavigate()
@@ -33,20 +32,27 @@ export default function SignIn() {
         })
     }
   return (
-    <main>
+    <main className='flex flex-col items-center text-xl gap-2'>
         <h1>Iniciar sesion</h1>
-        <form onSubmit={loggin}>
-            <label>Email
-                <input type="email" required={true} onChange={(e)=>setEmail(e.target.value)} />
-            </label>
-            <label>
-                <input type="password" required={true} onChange={(e)=>setPassword(e.target.value)}/>
-            </label>
-            <button>Ingresar</button>
+        <form onSubmit={loggin} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2" for="email">
+                    Email
+                </label>
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" required={true} onChange={(e)=>setEmail(e.target.value)} />
+            </div>
+            <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2" for="password">
+                    Password
+                </label>
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="password" id='password' required={true} onChange={(e)=>setPassword(e.target.value)}/>
+            </div>
+            <div className="flex justify-between">
+                <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={()=> navigate('/')}>Volver</button>
+                <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Ingresar</button>
+            </div>
         </form>
         <h2>{finish}</h2>
-        <button onClick={()=> navigate('/')}>Volver</button>
-        <SignInGoogle />
     </main>
   )
 }

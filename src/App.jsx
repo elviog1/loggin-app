@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Header from './components/Header'
-import SignIn from './components/SignIn'
-import SignUp from './components/SignUp'
-import Welcome from './components/Welcome'
 import CommentsPage from './pages/CommentsPage'
+import HomePage from './pages/HomePage'
+import SignInPage from './pages/SignInPage'
+import SignUpPage from './pages/SignUpPage'
 
 
 function App() {
@@ -12,9 +12,9 @@ function App() {
     <BrowserRouter>
     <Header />
       <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/signin" element={<SignInPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
         <Route path="/home" element={<CommentsPage />} />
       </Routes>
     </BrowserRouter>

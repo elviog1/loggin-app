@@ -39,7 +39,7 @@ export default function SignUpGoogle() {
         )
     },[])
   return (
-    <div>
+    <div className='mb-4'>
         <div id="buttonGoogle" data-context="use"></div>
     </div>
   )
