@@ -15,7 +15,7 @@ export default function SignInGoogle() {
         console.log(res)
         localStorage.setItem("user",JSON.stringify(userObj))
         localStorage.setItem("id",JSON.stringify(res.data.response.id))
-        navigate('/home')
+        navigate('/comments')
     })
     }
 

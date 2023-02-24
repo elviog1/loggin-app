@@ -24,7 +24,7 @@ export default function SignIn() {
             localStorage.setItem("id",JSON.stringify(user.id))
             setFinish("Loading...")
             setTimeout(()=>{
-                navigate("/home")
+                navigate("/comments")
             },1000)
         }
         }).catch(error =>{
