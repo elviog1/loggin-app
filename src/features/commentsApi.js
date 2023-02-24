@@ -16,9 +16,15 @@ const commentsApi = createApi({
         AllComments: build.query({
             query: ()=>`/comment`,
             transformResponse: res => res.response
+        }),
+        deleteComment: build.mutation({
+            query:(id) =>({
+                url: `/comment/${id}`,
+                method: 'DELETE'
+            })
         })
     })
 })
 
 export default commentsApi
-export const {useCreateCommentMutation,useAllCommentsQuery} = commentsApi
+export const {useCreateCommentMutation,useAllCommentsQuery,useDeleteCommentMutation} = commentsApi
