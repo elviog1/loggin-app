@@ -14,7 +14,7 @@ export default function Comments(props) {
     }
 
   return (
-    <div className='mb-5 px-4'>
+    <div className='mb-5 px-4 shadow-lg hover:shadow-2xl'>
         <h3 className='text-center font-bold text-sm'>{commentData.user.name}</h3>
         <div className='flex items-center bg-slate-100 rounded'>
             <img className='w-24 rounded' src={commentData.user.photo} alt='user picture' />
