@@ -33,7 +33,7 @@ export default function SignIn() {
     }
   return (
     <main className='flex flex-col items-center text-xl gap-2'>
-        <h1>Iniciar sesion</h1>
+        <h1 className='font-bold text-2xl'>Iniciar sesion</h1>
         <form onSubmit={loggin} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" for="email">

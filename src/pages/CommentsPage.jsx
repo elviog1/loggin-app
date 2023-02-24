@@ -14,12 +14,14 @@ export default function CommentsPage() {
     },[data])
     console.log(data)   
   return (
-    <main>
-        <h1>Comments</h1> 
+    <main className='flex items-center justify-center bg-blue-300 min-h-screen'>
+      <div className=''>
+        <h1 className='text-center font-bold text-2xl'>Comments</h1> 
         {allComments?.map((comment,index) =>(
           <Comments comments={comment} key={index}  />
-        ))}
+          ))}
         <NewComment />
+          </div>
     </main>
   )
 }

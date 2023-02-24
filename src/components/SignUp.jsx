@@ -41,7 +41,7 @@ export default function SignUp() {
     console.log(code)
   return (
     <main className='flex flex-col items-center text-xl gap-2'>
-        <h1>Registro</h1>
+        <h1 className='font-bold text-2xl'>Registro</h1>
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={submitForm}>
             <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" for="name">
