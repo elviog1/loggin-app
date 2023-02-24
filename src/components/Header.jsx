@@ -30,7 +30,7 @@ export default function Header() {
         <span className="text-3xl font-serif">Login - APP</span>
           <div className="flex gap-3 text-2xl">
             <span>{user.name}</span>
-            <span className="text-rose-700 cursor-pointer" onClick={handleSignout}>Descontarse</span>
+            <span className="text-rose-700 hover:text-orange-600 cursor-pointer" onClick={handleSignout}>Descontarse</span>
           </div>
           </header>
         }
