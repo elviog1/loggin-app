@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Comments from '../components/Comments'
+import Loading from '../components/Loading'
 import NewComment from '../components/NewComment'
 import { useAllCommentsMutation, useCreateCommentMutation, useDeleteCommentMutation } from '../features/commentsApi'
 
@@ -21,14 +22,19 @@ export default function CommentsPage() {
       await deleteComment(idComment)
       setRefresh(()=> {return !refresh})
     }
-
   return (
-    <main className='flex items-center justify-center bg-blue-300 min-h-screen'>
-      <div className=''>
+    <main className='flex items-center justify-center bg-blue-300 min-h-screen pt-20'>
+      <div className='my-5 '>
         <h1 className='text-center font-bold text-2xl font-serif'>ALL SECRETS :)</h1> 
-        {allComments?.map((comment,index) =>(
-          <Comments comments={comment} key={index} handleDeleteComment={()=>handleDeleteComment(comment._id)}  />
-          ))}
+        {allComments === undefined ? 
+          <div className='flex justify-center m-4'>
+            <Loading /> 
+          </div>
+            :
+          allComments?.map((comment,index) =>(
+            <Comments comments={comment} key={index} handleDeleteComment={()=>handleDeleteComment(comment._id)}  />
+            ))
+        }
         <NewComment postComment={postComment} />
       </div>
     </main>
