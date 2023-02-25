@@ -86,7 +86,7 @@ export default function SignUp() {
             {codeBool ? <h2 className="text-green-700 text-center">{finish}</h2> : <h2 className="text-red-700 text-center">{finish}</h2>}
             {/* <h2>{finish}</h2> */}
         </form>
-        {codeBool && <a className="font-bold text-yellow-500 hover:text-orange-500 mb-3" href='https://mail.google.com'>Click Here to Active your account</a>}
+        {codeBool && <a className="font-bold text-yellow-500 hover:text-orange-500 mb-3" href='https://mail.google.com' target="_blank">Click Here to Active your account</a>}
     </main>
   )
 }
