@@ -8,7 +8,7 @@ export default function Comments(props) {
       props.handleDeleteComment()
     }
   return (
-    <div className='flex gap-2 bg-slate-200 p-3 rounded-xl my-3 max-w-xl shadow'>
+    <div className='flex gap-2 bg-slate-200 p-3 rounded-xl my-3 max-w-xl shadow mx-2'>
       <div>
         <img className='w-16 rounded-full' src={commentData.user.photo} alt='user picture' />
       </div>

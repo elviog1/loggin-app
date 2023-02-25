@@ -17,7 +17,7 @@ export default function NewComment({postComment}) {
         } )
     }
   return (
-    <form className='bg-slate-200 rounded-xl p-3 flex gap-2 items-center shadow' onSubmit={sendComment}>
+    <form className='bg-slate-200 rounded-xl p-3 mx-2 flex gap-2 items-center shadow' onSubmit={sendComment}>
         <div>
             <img className='rounded-full w-16' src={user.picture || user.photo} alt='user picture' />
         </div>

@@ -7,6 +7,22 @@ export default function Header() {
   const [email,setEmail] = useState("")
   const [signout] = useSignOutMutation()
   const navigate = useNavigate()
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
 
   useEffect(()=>{
     if(user){
@@ -20,15 +36,12 @@ export default function Header() {
       localStorage.removeItem('user')
       localStorage.removeItem('id')
     })
-
   }
-  // console.log(user)
   return (
       <>
     {user && 
-    <header className="flex justify-between font-medium p-4 bg-blue-300">
-        {/* <span className="text-3xl font-serif">Login - APP</span> */}
-        <img className='w-44' src='logo.png' alt='logo login app'/>
+    <header className={`fixed w-full top-0 h-20 flex justify-between font-medium p-4 bg-blue-400 duration-500 transition-all ease-in-out ${isScrolled && 'bg-transparent'}` } >
+        <img className='object-cover ' src='logo.png' alt='logo login app'/>
           <div className="flex gap-3 text-2xl">
             <span>{user.name}</span>
             <span className="text-rose-700 hover:text-orange-600 cursor-pointer" onClick={handleSignout}>Descontarse</span>
