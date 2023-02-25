@@ -1,16 +1,10 @@
 import React from 'react'
-import { useDeleteCommentMutation } from '../features/commentsApi'
-
 export default function Comments(props) {
     const commentData = props.comments
-    const [deleteComment] = useDeleteCommentMutation()
-    const idComment = commentData._id
     const user = JSON.parse(localStorage.getItem("id"))
 
-    const handleDeleteComment = ()=>{
-      deleteComment(idComment)
-      .then(res => console.log(res))
-      .catch(error => console.log(error))
+    const refresh = () =>{
+      props.handleDeleteComment()
     }
 
   return (
@@ -23,7 +17,7 @@ export default function Comments(props) {
         <div className='flex justify-between items-end'>
           <h4 className="text-end text-gray-500">{commentData.date}</h4>
           {user === commentData.user._id && 
-          <img onClick={handleDeleteComment} className='w-8 cursor-pointer bg-red-400 hover:bg-red-600 rounded p-0.5' src='https://cdn-icons-png.flaticon.com/512/484/484611.png' alt='delete icon' />
+          <img onClick={refresh} className='w-8 cursor-pointer bg-red-400 hover:bg-red-600 rounded p-0.5' src='https://cdn-icons-png.flaticon.com/512/484/484611.png' alt='delete icon' />
           }
           
         </div>
