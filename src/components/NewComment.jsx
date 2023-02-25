@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
-import { useCreateCommentMutation } from '../features/commentsApi'
-
-export default function NewComment() {
-    const [postComment] = useCreateCommentMutation()
+export default function NewComment({postComment}) {
     const [ message, setMessage] = useState("")
     const user = JSON.parse(localStorage.getItem('user'))
     const id = JSON.parse(localStorage.getItem('id'))
