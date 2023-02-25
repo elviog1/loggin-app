@@ -25,7 +25,7 @@ export default function CommentsPage() {
   return (
     <main className='flex items-center justify-center bg-blue-300 min-h-screen'>
       <div className=''>
-        <h1 className='text-center font-bold text-2xl'>Comments</h1> 
+        <h1 className='text-center font-bold text-2xl font-serif'>ALL SECRETS :)</h1> 
         {allComments?.map((comment,index) =>(
           <Comments comments={comment} key={index} handleDeleteComment={()=>handleDeleteComment(comment._id)}  />
           ))}
