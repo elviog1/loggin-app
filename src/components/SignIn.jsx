@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSignInMutation } from '../features/usersApi'
+import Loading from './Loading'
 
 export default function SignIn() {
     const navigate = useNavigate()
@@ -8,7 +9,7 @@ export default function SignIn() {
     const [email , setEmail] = useState("")
     const [password , setPassword] = useState("")
     const [finish,setFinish] = useState("")
-
+    const [logged,setLogged] = useState(false)
     const loggin = (e)=>{
         e.preventDefault()
         let data={
@@ -16,6 +17,7 @@ export default function SignIn() {
             password,
             from: 'form'
         }
+        setLogged(!logged)
         signin(data).then(res =>{
         if(res.data.success){
             const user = res.data.response.loginUser
@@ -25,7 +27,7 @@ export default function SignIn() {
             setFinish("Loading...")
             setTimeout(()=>{
                 navigate("/comments")
-            },1000)
+            },3000)
         }
         }).catch(error =>{
             setFinish("Error")
@@ -36,13 +38,13 @@ export default function SignIn() {
         <h1 className='font-bold text-2xl'>Iniciar sesion</h1>
         <form onSubmit={loggin} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" for="email">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
                     Email
                 </label>
                 <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" required={true} onChange={(e)=>setEmail(e.target.value)} />
             </div>
             <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" for="password">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
                     Password
                 </label>
                 <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="password" id='password' required={true} onChange={(e)=>setPassword(e.target.value)}/>
@@ -52,6 +54,7 @@ export default function SignIn() {
                 <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Ingresar</button>
             </div>
         </form>
+        {logged && <Loading />}
         <h2>{finish}</h2>
     </main>
   )
