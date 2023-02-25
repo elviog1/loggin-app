@@ -13,7 +13,7 @@ const commentsApi = createApi({
                 body: data
             })
         }),
-        AllComments: build.query({
+        AllComments: build.mutation({
             query: ()=>`/comment`,
             transformResponse: res => res.response
         }),
@@ -27,4 +27,4 @@ const commentsApi = createApi({
 })
 
 export default commentsApi
-export const {useCreateCommentMutation,useAllCommentsQuery,useDeleteCommentMutation} = commentsApi
+export const {useCreateCommentMutation,useAllCommentsMutation,useDeleteCommentMutation} = commentsApi
