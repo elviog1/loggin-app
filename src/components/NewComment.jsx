@@ -25,7 +25,7 @@ export default function NewComment({postComment}) {
             <textarea ref={textareaRef} className=" resize-none rounded w-full  px-3 pt-1 placeholder-gray-600" onChange={(e)=> setMessage(e.target.value)} placeholder="What's your biggest secret?"></textarea>
         </div>
         <div>
-            <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Enviar</button>
+            <button className="bg-blue-500 hover:bg-blue-600 font-bold border-none btn">Send</button>
         </div>
     </form>
   )
