@@ -33,8 +33,10 @@ export default function Header() {
     signout(email).then(res => {
       console.log(res)
       navigate('/')
-      localStorage.removeItem('user')
-      localStorage.removeItem('id')
+      setTimeout(()=>{
+        localStorage.removeItem('user')
+        localStorage.removeItem('id')
+      },2000)
     })
   }
   return (

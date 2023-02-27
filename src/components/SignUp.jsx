@@ -37,6 +37,7 @@ export default function SignUp() {
                 setCodeBool(false)
             }
         })
+        .catch(error => console.log(error))
     }
     console.log(code)
   return (
