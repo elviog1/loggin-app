@@ -36,7 +36,7 @@ export default function Header() {
       setTimeout(()=>{
         localStorage.removeItem('user')
         localStorage.removeItem('id')
-      },2000)
+      },3000)
     })
   }
   return (
