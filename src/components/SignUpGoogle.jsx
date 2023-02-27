@@ -29,7 +29,7 @@ export default function SignUpGoogle() {
     useEffect(()=>{
         /* global google */
         google.accounts.id.initialize({
-            client_id: "233988563348-ftfff5fccl2n9035bkl2l7cgsa2cnqme.apps.googleusercontent.com",
+            client_id: "1048431450645-lohsbvbpr38semovoqo1s09e0g5maabh.apps.googleusercontent.com",
             callback: handleCallbackResponse
         })
         google.accounts.id.renderButton(
