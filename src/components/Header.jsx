@@ -28,16 +28,17 @@ export default function Header() {
     if(user){
       setEmail(user.email)
     }
-  },[])
+  },[setEmail])
   const handleSignout = ()=>{
     signout(email).then(res => {
       console.log(res)
       navigate('/')
-      setTimeout(()=>{
-        localStorage.removeItem('user')
+      // setTimeout(()=>{
         localStorage.removeItem('id')
-      },3000)
+        localStorage.removeItem('user')
+      // },3000)
     })
+    .catch(error => console.log(error))
   }
   return (
       <>
