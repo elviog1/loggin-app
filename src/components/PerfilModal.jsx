@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 export default function PerfilModal(user) {
-    const userData = user.user
+    const userData = user.user.user
     console.log(userData)
   return (
     <section>
@@ -12,12 +12,12 @@ export default function PerfilModal(user) {
             <h3 className="text-lg font-bold text-center">Description</h3>
             <div className='flex gap-3'>
                 <div className=''>
-                    <img src={userData.picture || userData.photo} alt='avatar user' className='w-40 rounded-full'/>
+                    <img src={userData.photo} alt='avatar user' className='w-40 rounded-full'/>
                 </div>
                 <div className='flex flex-col gap-3'>
                     <div>
                         <label>Name:</label>
-                        <span>{userData.given_name || userData.name}</span>
+                        <span>{userData.name}</span>
                     </div>
                     <div>
                         <label>Last Name:</label>
