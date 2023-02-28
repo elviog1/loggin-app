@@ -8,7 +8,7 @@ export default function Comments(props) {
     const refresh = () =>{
       props.handleDeleteComment()
     }
-    console.log(commentData)
+    // console.log(commentData)
   return (
     <div className='flex gap-2 bg-slate-200 p-3 rounded-xl my-3 max-w-xl shadow mx-2'>
       <div>
@@ -30,7 +30,7 @@ export default function Comments(props) {
           }
         </div>
       </div>
-    <PerfilModal user={commentData} />
+    {/* <PerfilModal user={commentData} /> */}
     </div>
   )
 }
