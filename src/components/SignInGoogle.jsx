@@ -7,6 +7,7 @@ export default function SignInGoogle() {
     const [signin] = useSignInMutation()
     const navigate = useNavigate()
     const [logged,setLogged] = useState(false)
+    const [finish,setFinish] = useState("")
     function handleCallbackResponse(response){
         let userObj = jwtDecode(response.credential)
         let data = {
@@ -17,8 +18,13 @@ export default function SignInGoogle() {
     signin(data).then(res => {
         console.log(res)
         localStorage.setItem("user",JSON.stringify(userObj))
-        localStorage.setItem("id",JSON.stringify(res.data.response.id))
+        localStorage.setItem("id",JSON.stringify(res.data.response.loginUser.id))
         navigate('/comments')
+    })
+    .catch(error => {
+        console.log(error)
+        setFinish("Error")
+        setLogged(false)
     })
     }
 
@@ -41,6 +47,7 @@ export default function SignInGoogle() {
     <div className='flex flex-col items-center gap-4'>
         <div  id="buttonGoogle"></div>
         {logged && <Loading />}
+        {finish}
     </div>
   )
 }

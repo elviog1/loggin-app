@@ -31,6 +31,7 @@ export default function SignIn() {
         }
         }).catch(error =>{
             setFinish("Error")
+            setLogged(false)
         })
     }
   return (
