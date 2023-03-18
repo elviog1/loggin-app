@@ -5,7 +5,7 @@ const local = 'http://localhost:4000'
 const usersApi = createApi({
     reducerPath: "usersApi",
     baseQuery:fetchBaseQuery({
-        baseUrl: api
+        baseUrl: local
     }),
     endpoints:(build)=>({
         signIn:build.mutation({

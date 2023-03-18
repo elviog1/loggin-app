@@ -4,7 +4,7 @@ const local = 'http://localhost:4000'
 const commentsApi = createApi({
     reducerPath: "commentsApi",
     baseQuery:fetchBaseQuery({
-        baseUrl: api
+        baseUrl: local
     }),
     endpoints: (build)=>({
         createComment: build.mutation({
