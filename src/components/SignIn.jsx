@@ -19,15 +19,16 @@ export default function SignIn() {
         }
         setLogged(!logged)
         signin(data).then(res =>{
-        if(res.data.success){
+        if(res){
             const user = res.data.response.loginUser
             console.log(user)
             localStorage.setItem("user",JSON.stringify(user))
             localStorage.setItem("id",JSON.stringify(user.id))
             setFinish("Loading...")
-            setTimeout(()=>{
+            // setTimeout(()=>{
                 navigate("/comments")
-            },3000)
+                window.location.reload()
+            // },3000)
         }
         }).catch(error =>{
             setFinish("Error")
