@@ -25,7 +25,7 @@ export default function CommentsPage() {
   return (
     <main className='flex items-center justify-center bg-blue-300 min-h-screen pt-20'>
       <div className='my-5 '>
-        <h1 className='text-center font-bold text-2xl font-serif'>ALL SECRETS :)</h1> 
+        <h1 className='text-center font-bold text-2xl font-serif text-gray-900'>ALL SECRETS :)</h1> 
         {allComments === undefined ? 
           <div className='flex justify-center m-4'>
             <Loading /> 

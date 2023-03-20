@@ -37,19 +37,19 @@ export default function SignIn() {
     }
   return (
     <main className='flex flex-col items-center text-xl gap-2'>
-        <h1 className='font-bold text-2xl'>Iniciar sesion</h1>
+        <h1 className='font-bold text-2xl text-gray-900'>Iniciar sesion</h1>
         <form onSubmit={loggin} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
                     Email
                 </label>
-                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" required={true} onChange={(e)=>setEmail(e.target.value)} />
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-300 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" required={true} onChange={(e)=>setEmail(e.target.value)} />
             </div>
             <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
                     Password
                 </label>
-                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="password" id='password' required={true} onChange={(e)=>setPassword(e.target.value)}/>
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-300 leading-tight focus:outline-none focus:shadow-outline" type="password" id='password' required={true} onChange={(e)=>setPassword(e.target.value)}/>
             </div>
             <div className="flex justify-between">
                 <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={()=> navigate('/')}>Volver</button>
@@ -57,7 +57,7 @@ export default function SignIn() {
             </div>
         </form>
         {logged && <Loading />}
-        <h2>{finish}</h2>
+        <h2 className='text-gray-900'>{finish}</h2>
     </main>
   )
 }

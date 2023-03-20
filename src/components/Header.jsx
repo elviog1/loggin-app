@@ -43,10 +43,10 @@ export default function Header() {
   return (
       <>
     {user && 
-    <header className={`fixed w-full top-0 h-20 flex justify-between font-medium p-4 bg-blue-400 duration-500 transition-all ease-in-out ${isScrolled && 'bg-transparent'}` } >
+    <header className={`fixed w-full top-0 h-20 flex justify-between font-medium p-4 bg-gradient-to-t from-blue-300 to-blue-400 duration-500 transition-all ease-in-out ${isScrolled && 'bg-transparent'}` } >
         <img className='object-cover ' src='logo.png' alt='logo login app'/>
           <div className="flex gap-3 text-2xl">
-            <span>{user.name}</span>
+            <span className='text-gray-900'>{user.name}</span>
             <span className="text-rose-700 hover:text-orange-600 cursor-pointer" onClick={handleSignout}>Descontarse</span>
           </div>
           </header>

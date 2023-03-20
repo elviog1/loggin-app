@@ -42,31 +42,31 @@ export default function SignUp() {
     console.log(code)
   return (
     <main className='flex flex-col items-center text-xl gap-2'>
-        <h1 className='font-bold text-2xl'>Registro</h1>
+        <h1 className='font-bold text-2xl text-gray-900'>Registro</h1>
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={submitForm}>
             <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
                     Nombre
                 </label>
-                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id='name' type="text" required={true} name="name" onChange={(e)=>setName(e.target.value)}/>
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-300 leading-tight focus:outline-none focus:shadow-outline" id='name' type="text" required={true} name="name" onChange={(e)=>setName(e.target.value)}/>
             </div>
             <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="lastname">
                     Apellido
                 </label>
-                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id='lastname' type="text" required={true} name="lastname" onChange={(e)=>setLastName(e.target.value)}/>
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-300 leading-tight focus:outline-none focus:shadow-outline" id='lastname' type="text" required={true} name="lastname" onChange={(e)=>setLastName(e.target.value)}/>
             </div>
             <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
                     Email
                 </label>
-                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id='email' type="email" required={true} name="email" onChange={(e)=>setEmail(e.target.value)}/>
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-300 leading-tight focus:outline-none focus:shadow-outline" id='email' type="email" required={true} name="email" onChange={(e)=>setEmail(e.target.value)}/>
             </div>
             <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
                     Password
                 </label>
-                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id='password' type="password" required={true} onChange={(e)=>setPassword(e.target.value)}/>
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-300 leading-tight focus:outline-none focus:shadow-outline" id='password' type="password" required={true} onChange={(e)=>setPassword(e.target.value)}/>
             </div>
             <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="country">

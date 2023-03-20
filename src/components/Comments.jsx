@@ -20,9 +20,9 @@ export default function Comments(props) {
         />
       <div className='flex flex-col w-full '>
         <div className='flex items-center gap-2'>
-        <label htmlFor="my-modal-3" className='font-bold text-xl cursor-pointer'>{commentData.user.name}:</label>
+        <label htmlFor="my-modal-3" className='font-bold text-gray-900 text-xl cursor-pointer'>{commentData.user.name}:</label>
         </div>
-        <div className="px-3 font-serif max-w-xl overflow-auto">{commentData.comment}</div>
+        <div className="px-3 font-serif max-w-xl overflow-auto text-gray-700">{commentData.comment}</div>
         <div className='flex justify-between items-end'>
           <span className='text-gray-400 text-xs hover:text-gray-500'>{dateArray[0]} - {time}</span>
           {id === commentData.user._id && 
