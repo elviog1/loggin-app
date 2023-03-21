@@ -22,10 +22,10 @@ export default function NewComment({postComment}) {
             <img className='rounded-full w-16' src={user.picture || user.photo} alt='user picture' />
         </div>
         <div className='w-full'>
-            <textarea maxLength={500} ref={textareaRef} className=" resize-none rounded w-full  px-3 pt-1 placeholder-gray-600 bg-gray-300 text-gray-900" onChange={(e)=> setMessage(e.target.value)} placeholder="What's your biggest secret?"></textarea>
+            <textarea maxLength={500} ref={textareaRef} className=" resize-none rounded w-full  px-3 pt-1 placeholder-gray-600 bg-gray-300 text-gray-900" onChange={(e)=> setMessage(e.target.value)} placeholder="Dejame un comentario para que leamos :D"></textarea>
         </div>
         <div>
-            <button className="bg-blue-500 hover:bg-blue-600 font-bold border-none btn">Send</button>
+            <button className="bg-blue-500 hover:bg-blue-600 hover:text-gray-50 font-bold text-gray-900 border-none btn">Send</button>
         </div>
     </form>
   )

@@ -41,16 +41,16 @@ export default function Header() {
     .catch(error => console.log(error))
   }
   return (
-      <>
+    <div className=' w-full fixed backdrop-blur-md'>
     {user && 
-    <header className={`fixed w-full top-0 h-20 flex justify-between font-medium p-4 bg-gradient-to-t from-blue-300 to-blue-400 duration-500 transition-all ease-in-out ${isScrolled && 'bg-transparent'}` } >
-        <img className='object-cover ' src='logo.png' alt='logo login app'/>
-          <div className="flex gap-3 text-2xl">
-            <span className='text-gray-900'>{user.name}</span>
-            <span className="text-rose-700 hover:text-orange-600 cursor-pointer" onClick={handleSignout}>Descontarse</span>
-          </div>
-          </header>
-        }
-        </>
+      <header className='flex justify-between text-4xl items-center flex-wrap pt-3 gap-3 max-w-6xl mx-auto my-0 font-bold'>
+        <img className='object-cover w-52' src='logo.png' alt='logo login app'/>
+        <div className="flex gap-3 text-2xl">
+          {/* <span className='text-gray-900'>{user.name}</span> */}
+          <span className="text-rose-700 hover:text-orange-600 cursor-pointer" onClick={handleSignout}>Descontarse</span>
+        </div>
+      </header>
+    }
+  </div>
           )
 }

@@ -10,6 +10,8 @@ export default function CommentsPage() {
     const [deleteComment,{data}] = useDeleteCommentMutation()
     const [allComments,setAllComments] = useState()
     const [refresh,setRefresh] = useState(false)
+    const user = JSON.parse(localStorage.getItem("user"))
+
 
     useEffect(()=>{
       comments().then(res => {
@@ -25,7 +27,7 @@ export default function CommentsPage() {
   return (
     <main className='flex items-center justify-center bg-blue-300 min-h-screen pt-20'>
       <div className='my-5 '>
-        <h1 className='text-center font-bold text-2xl font-serif text-gray-900'>ALL SECRETS :)</h1> 
+        <h1 className='text-center font-bold text-3xl font-serif text-gray-900'>¡ Hola <span className='text-3xl text-red-500'>{user.name}</span> !</h1> 
         {allComments === undefined ? 
           <div className='flex justify-center m-4'>
             <Loading /> 
