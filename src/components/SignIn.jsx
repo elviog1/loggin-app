@@ -27,7 +27,7 @@ export default function SignIn() {
             setFinish("Loading...")
             // setTimeout(()=>{
                 navigate("/comments")
-                window.location.reload()
+                // window.location.reload()
             // },3000)
         }
         }).catch(error =>{

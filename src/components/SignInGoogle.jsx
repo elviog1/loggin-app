@@ -20,7 +20,7 @@ export default function SignInGoogle() {
         localStorage.setItem("user",JSON.stringify(userObj))
         localStorage.setItem("id",JSON.stringify(res.data.response.loginUser.id))
         navigate('/comments')
-        window.location.reload()
+        // window.location.reload()
     })
     .catch(error => {
         console.log(error)
