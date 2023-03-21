@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
+import FooterButton from './components/FooterButton'
 import Header from './components/Header'
 import CommentsPage from './pages/CommentsPage'
 import HomePage from './pages/HomePage'
@@ -20,6 +21,7 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/comments" element={<CommentsPage />} />
       </Routes>
+      <FooterButton/>
     </BrowserRouter>
   )
 }

@@ -21,14 +21,10 @@ export default function SignIn() {
         signin(data).then(res =>{
         if(res){
             const user = res.data.response.loginUser
-            console.log(user)
             localStorage.setItem("user",JSON.stringify(user))
             localStorage.setItem("id",JSON.stringify(user.id))
             setFinish("Loading...")
-            // setTimeout(()=>{
-                navigate("/comments")
-                // window.location.reload()
-            // },3000)
+            navigate("/comments")
         }
         }).catch(error =>{
             setFinish("Error")

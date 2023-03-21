@@ -25,7 +25,7 @@ export default function NewComment({postComment}) {
             <textarea maxLength={500} ref={textareaRef} className=" resize-none rounded w-full  px-3 pt-1 placeholder-gray-600 bg-gray-300 text-gray-900" onChange={(e)=> setMessage(e.target.value)} placeholder="Dejame un comentario para que leamos :D"></textarea>
         </div>
         <div>
-            <button className="bg-blue-500 hover:bg-blue-600 hover:text-gray-50 font-bold text-gray-900 border-none btn">Send</button>
+            <button className="bg-blue-500 hover:bg-blue-600 hover:text-gray-50 font-bold text-gray-900 border-none btn">Enviar</button>
         </div>
     </form>
   )
