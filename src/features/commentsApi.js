@@ -4,7 +4,7 @@ const local = 'http://localhost:4000'
 const commentsApi = createApi({
     reducerPath: "commentsApi",
     baseQuery:fetchBaseQuery({
-        baseUrl: api
+        baseUrl: local
     }),
     endpoints: (build)=>({
         createComment: build.mutation({
@@ -23,9 +23,16 @@ const commentsApi = createApi({
                 url: `/comment/${id}`,
                 method: 'DELETE'
             })
-        })
+        }),
+        updateComment: build.mutation({
+            query:({comment,id}) =>({
+                url: `/comment/${id}`,
+                method: 'PUT',
+                body:comment
+            })
+        }),
     })
 })
 
 export default commentsApi
-export const {useCreateCommentMutation,useAllCommentsMutation,useDeleteCommentMutation} = commentsApi
+export const {useCreateCommentMutation,useAllCommentsMutation,useDeleteCommentMutation,useUpdateCommentMutation} = commentsApi
