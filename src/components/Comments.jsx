@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState,useEffect } from 'react'
-import { useUpdateCommentMutation } from '../features/commentsApi'
+import { useLikeDislikeMutation, useUpdateCommentMutation } from '../features/commentsApi'
 import ImageWithModal from './ImageWithModal'
 export default function Comments(props) {
     const commentData = props.comments
@@ -59,8 +59,9 @@ export default function Comments(props) {
           role={commentData.user.role} 
         />
       <div className='flex flex-col w-full '>
-        <div className='flex items-center gap-2'>
-        <label htmlFor="my-modal-3" className='font-bold text-gray-900 text-xl cursor-pointer'>{commentData.user.name}:</label>
+        <div className='flex justify-between items-center gap-2'>
+          <label htmlFor="my-modal-3" className='font-bold text-gray-900 text-xl cursor-pointer'>{commentData.user.name}:</label>
+          {/* <span  className='text-gray-900 text-3xl cursor-pointer'>♥{commentData.likes.length}</span> */}
         </div>
         <div className="px-3 font-serif max-w-xl overflow-auto text-gray-700">{commentMessage}</div>
         <div className='flex justify-between items-end'>

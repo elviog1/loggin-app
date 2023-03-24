@@ -9,7 +9,8 @@ export default function NewComment({postComment}) {
         let data = {
             comment: message,
             user: id,
-            date: new Date().toLocaleString()
+            date: new Date().toLocaleString(),
+            likes: []
         }
         postComment(data).then(res =>{
             console.log(res)
