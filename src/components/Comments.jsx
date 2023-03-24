@@ -38,7 +38,7 @@ export default function Comments(props) {
       const data = {
         comment:updateText
       }
-      axios.put(`https://login-app-back.onrender.com/${commentData._id}`,data)
+      axios.put(`https://login-app-back.onrender.com/comment/${commentData._id}`,data)
       .then(res => {
         setCommentMessage(updateText)
         setEditClick(!editClick)
