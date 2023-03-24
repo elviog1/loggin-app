@@ -1,19 +1,51 @@
+import axios from 'axios'
 import React, { useState,useEffect } from 'react'
+import { useUpdateCommentMutation } from '../features/commentsApi'
 import ImageWithModal from './ImageWithModal'
 export default function Comments(props) {
     const commentData = props.comments
+    const [commentMessage,setCommentMessage] = useState(commentData.comment)
     const id = JSON.parse(localStorage.getItem("id"))
     const dateArray = commentData.date.split(",")
     const time = dateArray[1]
     const [editClick,setEditClick] = useState(false)
-    const [updateText,setUpdateText] = useState("")
-
+    
     const refresh = () =>{
       props.handleDeleteComment()
     }
     const editButton = ()=>{
       setEditClick(!editClick)
     }
+    
+    const [updateText,setUpdateText] = useState("") //onChange= (e)=>setUpdateText(e.target.value) en el textarea
+    // const [updateComment] = useUpdateCommentMutation("6418d21ffd1b431b3b44bb9b");
+
+    // const handleUpdateComment = ()=>{ // boton para actualizar onClick={()=> handleUpdate}
+    //   const data = {
+    //     comment: updateText
+    //   }
+    //   updateComment(data) // commentData._id el ID del comentario
+    //   .unwrap()
+    //   .then(res => console.log(res))
+    //   .catch(e => console.log(e))
+    // }
+
+    useEffect(()=>{
+      
+    },[commentMessage])
+
+    const handleUpdateComment = ()=>{
+      const data = {
+        comment:updateText
+      }
+      axios.put(`https://login-app-back.onrender.com/${commentData._id}`,data)
+      .then(res => {
+        setCommentMessage(updateText)
+        setEditClick(!editClick)
+      })
+      .catch(e => console.log(e))
+    }
+
   return (
     <div>
 
@@ -30,7 +62,7 @@ export default function Comments(props) {
         <div className='flex items-center gap-2'>
         <label htmlFor="my-modal-3" className='font-bold text-gray-900 text-xl cursor-pointer'>{commentData.user.name}:</label>
         </div>
-        <div className="px-3 font-serif max-w-xl overflow-auto text-gray-700">{commentData.comment}</div>
+        <div className="px-3 font-serif max-w-xl overflow-auto text-gray-700">{commentMessage}</div>
         <div className='flex justify-between items-end'>
           <span className='text-gray-400 text-xs hover:text-gray-500'>{dateArray[0]} - {time}</span>
           {id === commentData.user._id && 
@@ -52,7 +84,7 @@ export default function Comments(props) {
     {editClick && 
     <div className='flex p-3 rounded-xl my-3 max-w-xl shadow mx-2 gap-2'>
       <textarea onChange={(e)=>setUpdateText(e.target.value)} maxLength={500} className=" resize-none rounded w-full  px-3 pt-1 placeholder-gray-600 bg-gray-300 text-gray-900" ></textarea>
-      <button className='bg-blue-500 hover:bg-blue-600 hover:text-gray-50 font-bold text-gray-900 border-none btn' >Enviar</button>
+      <button onClick={handleUpdateComment} className='bg-blue-500 hover:bg-blue-600 hover:text-gray-50 font-bold text-gray-900 border-none btn' >Enviar</button>
     </div>
     }
             </div>
