@@ -6,26 +6,24 @@ function Modal(props) {
   return (
     <>
       {isOpen && (
-        <div className="fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white rounded-lg p-6 flex flex-col text-center">
+        <div className="fixed top-0 left-0 w-full h-full  bg-gray-900 bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white rounded-lg p-6 flex flex-col text-center  font-serif text-xl gap-2  text-gray-900">
 
-            <div className="mb-4 shadow-2xl rounded-full">
-              <img className='w-60 rounded-full' src={imageSrc} alt="" />
+            <div className="mb-4 shadow-2xl rounded-full self-center">
+              <img className='w-60 rounded-full ' src={imageSrc} alt="" />
             </div>
 
-            <span>Description</span>
-
-            <div className='flex '>
+            <div className='flex flex-wrap'>
               <span className='font-bold'>Name: </span>
               <span>{name}</span>
             </div>
 
-            <div className='flex '>
+            <div className='flex flex-wrap'>
               <span className='font-bold'>LastName: </span>
               <span>{lastName}</span>
             </div>
 
-            <div className='flex '>
+            <div className='flex flex-wrap'>
               <span className='font-bold'>Email: </span>
               <span>{email}</span>
             </div>
