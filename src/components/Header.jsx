@@ -18,8 +18,9 @@ export default function Header() {
     signout(email).then(res => {
       console.log(res)
       navigate('/')
-        localStorage.removeItem('id')
-        localStorage.removeItem('user')
+      localStorage.removeItem('id')
+      localStorage.removeItem('user')
+      window.location.reload()
     })
     .catch(error => console.log(error))
   }

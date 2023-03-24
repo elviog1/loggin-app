@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React, { useState,useEffect } from 'react'
-import { useLikeDislikeMutation, useUpdateCommentMutation } from '../features/commentsApi'
 import ImageWithModal from './ImageWithModal'
 export default function Comments(props) {
     const commentData = props.comments
@@ -9,6 +8,7 @@ export default function Comments(props) {
     const dateArray = commentData.date.split(",")
     const time = dateArray[1]
     const [editClick,setEditClick] = useState(false)
+    const [updateText,setUpdateText] = useState("")
     
     const refresh = () =>{
       props.handleDeleteComment()
@@ -16,19 +16,6 @@ export default function Comments(props) {
     const editButton = ()=>{
       setEditClick(!editClick)
     }
-    
-    const [updateText,setUpdateText] = useState("") //onChange= (e)=>setUpdateText(e.target.value) en el textarea
-    // const [updateComment] = useUpdateCommentMutation("6418d21ffd1b431b3b44bb9b");
-
-    // const handleUpdateComment = ()=>{ // boton para actualizar onClick={()=> handleUpdate}
-    //   const data = {
-    //     comment: updateText
-    //   }
-    //   updateComment(data) // commentData._id el ID del comentario
-    //   .unwrap()
-    //   .then(res => console.log(res))
-    //   .catch(e => console.log(e))
-    // }
 
     useEffect(()=>{
       
@@ -58,10 +45,9 @@ export default function Comments(props) {
           country={commentData.user.country} 
           role={commentData.user.role} 
         />
-      <div className='flex flex-col w-full '>
+      <div className='flex flex-col w-full justify-between'>
         <div className='flex justify-between items-center gap-2'>
           <label htmlFor="my-modal-3" className='font-bold text-gray-900 text-xl cursor-pointer'>{commentData.user.name}:</label>
-          {/* <span  className='text-gray-900 text-3xl cursor-pointer'>♥{commentData.likes.length}</span> */}
         </div>
         <div className="px-3 font-serif max-w-xl overflow-auto text-gray-700">{commentMessage}</div>
         <div className='flex justify-between items-end'>
